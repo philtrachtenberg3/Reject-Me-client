@@ -7,6 +7,7 @@ import SignupPage from './pages/SignupPage/SignupPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import MyPlans from './pages/MyPlans/MyPlans';
 import MyPlanDetails from './pages/MyPlanDetails/MyPlanDetails';
+import MyChallengeDetails from './pages/MyChallengeDetails/MyChallengeDetails';
 import Anon from './components/Anon/Anon';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <Route path="/" element={<HomePage />}/>  
       <Route path="/plan/my-plans/" element={<MyPlans />}/>  
       <Route path="/plan/my-plans/:planId" element={<MyPlanDetails />}/>  
+      <Route path="/plan/my-plans/:planId/:challengeId" element={<MyChallengeDetails />}/>  
 
       </Routes>
       
