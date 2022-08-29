@@ -33,7 +33,7 @@ function Navbar() {
                   </>
               )}
 
-              {!loggedIn && (
+              {loggedIn && (
                   <>
                       <Link to="/plan/my-plans">
                           <button>
@@ -41,7 +41,6 @@ function Navbar() {
                           </button>
                       </Link>
                       {/* <span>{user.username}</span> */}
-                      <button onClick={logout}>Logout</button>
                   </>
               )}
 
@@ -53,7 +52,6 @@ function Navbar() {
                           </button>
                       </Link>
                       {/* <span>{user.username}</span> */}
-                      <button onClick={logout}>Logout</button>
                   </>
               )}
 
@@ -65,7 +63,6 @@ function Navbar() {
                           </button>
                       </Link>
                       {/* <span>{user.username}</span> */}
-                      <button onClick={logout}>Logout</button>
                   </>
               )}
 
@@ -77,7 +74,14 @@ function Navbar() {
                           </button>
                       </Link>
                       {/* <span>{user.username}</span> */}
-                      <button onClick={logout}>Logout</button>
+                  </>
+              )}
+
+              {loggedIn && (
+                  <>
+                        <button onClick={logout}>Logout</button>
+                      {/* <span>{user.username}</span> */}
+                      
                   </>
               )}
 

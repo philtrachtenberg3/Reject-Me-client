@@ -24,8 +24,18 @@ function MyPlanDetails() {
   return (
     <div>
         {plan && (
-            <h1>{plan._id}</h1>
-        )}
+            <>
+                <h1>Plan ID: {plan._id}</h1>
+                {plan.challenges.map((challengeDetails) => {
+                    return (
+                        <div key={challengeDetails._id}>
+                            <h3>Challenge: {challengeDetails.title}</h3>
+                        </div>
+                    )
+                })}
+            </>
+        )
+        }
     </div>
   )
 }
