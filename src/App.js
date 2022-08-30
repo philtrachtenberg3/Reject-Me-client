@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage/HomePage';
 import SignupPage from './pages/SignupPage/SignupPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import MyPlans from './pages/MyPlans/MyPlans';
+import CreateMyPlan from './pages/CreateMyPlan/CreateMyPlan';
 import MyPlanDetails from './pages/MyPlanDetails/MyPlanDetails';
 import MyChallengeDetails from './pages/MyChallengeDetails/MyChallengeDetails';
 import Anon from './components/Anon/Anon';
@@ -34,6 +35,7 @@ function App() {
 
       <Route path="/" element={<HomePage />}/>  
       <Route path="/plan/my-plans/" element={<MyPlans />}/>  
+      <Route path="/plan/create-my-plan/" element={<CreateMyPlan />}/>  
       <Route path="/plan/my-plans/:planId" element={<MyPlanDetails />}/>  
       <Route path="/plan/my-plans/:planId/:challengeId" element={<MyChallengeDetails />}/>  
 

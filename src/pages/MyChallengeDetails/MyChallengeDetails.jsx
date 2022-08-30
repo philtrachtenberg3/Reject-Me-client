@@ -1,10 +1,12 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react';
-import {useParams, Link} from 'react-router-dom';
+import {useParams, Link, useNavigate} from 'react-router-dom';
 
 function MyChallengeDetails() {
   const [challenge, setChallenge] = useState("")
   const {planId, challengeId} = useParams();
+
+  const navigate = useNavigate();
 
   const [title, setTitle] = useState("")
   const [date, setDate] = useState("")
@@ -38,6 +40,16 @@ useEffect(() => {
   getChallenge();
 }, [])
 
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  const body = {journalEntry};
+
+  axios.put(`${process.env.REACT_APP_API_URL}/plan/my-plans/${planId}/${challengeId}`, body)
+  .then(() => navigate(`/plan/my-plans/${planId}`))
+  .catch((err) => console.log(err))
+}
+
 
 
 
@@ -48,9 +60,9 @@ useEffect(() => {
     {challenge && (
       <>
         <h1>{challenge.title}</h1>
-        <h3>Day {challenge.day}</h3>
+        <h3>Day {challenge.day}, {challenge.date.slice(0,10)}</h3>
         <form>
-            <label htmlFor="title">Title</label>
+            {/* <label htmlFor="title">Title</label>
             <input type="text" name="title" id="title" value={title} onChange={handleTitle}/>
 
             <label htmlFor="date">Date</label>
@@ -60,12 +72,12 @@ useEffect(() => {
             <input type="checkbox" name="isCompleted" id="isCompleted" checked={isCompleted} onChange={handleIsCompleted}/>
 
             <label htmlFor="wasRejected">Were you rejected?</label>
-            <input type="checkbox" name="wasRejected" id="wasRejected" checked={wasRejected} onChange={handleWasRejected}/>
+            <input type="checkbox" name="wasRejected" id="wasRejected" checked={wasRejected} onChange={handleWasRejected}/> */}
 
             <label htmlFor="journalEntry">Share Your Experience!</label>
             <textarea name="journalEntry" id="" cols="30" rows="10" onChange={handleJournalEntry}>{journalEntry}</textarea>
 
-            <button type="submit">Save</button>
+            <button type="submit" onSubmit={handleSubmit}>Save</button>
 
         </form>
         
