@@ -2,7 +2,7 @@ import axios from 'axios';
 import {useState, useEffect} from 'react';
 import {useParams, Link, useNavigate} from 'react-router-dom';
 
-function MyChallengeDetails() {
+function EditMyChallengeDetails() {
   const [challenge, setChallenge] = useState("")
   const [Loading, setLoading] = useState("")
   const {planId, challengeId} = useParams();
@@ -91,11 +91,15 @@ const handleSubmit = (e) => {
     <div>
     {challenge && (
       <>
-        <video src={challenge.video} alt="video"></video>
         <h1>{challenge.title}</h1>
         <h3>Day {challenge.day}, {challenge.date.slice(0,10)}</h3>
-        <h4>{challenge.date}</h4>
-        <form  onSubmit={handleSubmit}>
+        <video src={challenge.video} alt="video"></video>
+        <form  onSubmit={handleSubmit} >
+            <label htmlFor="title">Title</label>
+            <input type="text" name="title" id="title" value={title} onChange={handleTitle}/>
+
+            <label htmlFor="date">Date</label>
+            <input type="date" name="date" id="date" value={date.slice(0,10)} onChange={handleDate}/>
 
             <label htmlFor="isCompleted">Did you complete the challenge?</label>
             <input type="checkbox" name="isCompleted" id="isCompleted" checked={isCompleted} onChange={handleIsCompleted}/>
@@ -103,14 +107,18 @@ const handleSubmit = (e) => {
             <label htmlFor="wasRejected">Were you rejected?</label>
             <input type="checkbox" name="wasRejected" id="wasRejected" checked={wasRejected} onChange={handleWasRejected}/>
 
+          <label htmlFor="video">Video:<input
+						type="file"
+						accept=".jpg, .png, .jpeg, .webp, .mp4"
+						onChange={(e) => handleFileUpload(e)}/>
+				</label>
+
             <label htmlFor="journalEntry">Share Your Experience!</label>
             <textarea name="journalEntry" id="" cols="30" rows="10" onChange={handleJournalEntry}>{journalEntry}</textarea>
 
             <button type="submit">Save</button>
+
         </form>
-        <Link to="/">
-            <button>Edit My Plan</button>
-        </Link>
         
 
       </>
@@ -122,4 +130,4 @@ const handleSubmit = (e) => {
   )
 }
 
-export default MyChallengeDetails
+export default EditMyChallengeDetails
