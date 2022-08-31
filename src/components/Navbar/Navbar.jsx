@@ -47,7 +47,7 @@ function Navbars() {
   {loggedIn && (
     <>
         <Navbar.Link href="/plan/create-my-plan" active={true}>
-            <Button onClick={handleSubmit}>
+            <Button onClick={handleSubmit} className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 + Create My Plan
             </Button>
         </Navbar.Link>
@@ -76,13 +76,17 @@ function Navbars() {
     <>
         <Navbar.Link href="/plan/my-plans">
             My Plans
-        </Navbar.Link><Navbar.Link href="/all-plans">
+        </Navbar.Link>
+        <Navbar.Link href="/all-plans">
             All Plans
-        </Navbar.Link><Navbar.Link href="/view-ideas">
+        </Navbar.Link>
+        <Navbar.Link href="/view-ideas">
             Ideas
-        </Navbar.Link><Navbar.Link href="/profile">
+        </Navbar.Link>
+        <Navbar.Link href="/profile">
             Profile
-        </Navbar.Link><Navbar.Link onClick={logout} href="/">
+        </Navbar.Link>
+        <Navbar.Link onClick={logout} href="/">
             Logout
         </Navbar.Link>
     </>

@@ -108,6 +108,32 @@ nav li {
   background-color: #dfeef9;
 }
 
+.Video-Homepage {
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+  max-width: 100%;
+  max-height: auto;
+}
+
+.Video-Homepage-iframe {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.Bold-Homepage {
+  color: teal;
+}
+
+.DescriptiveTextContainer-Homepage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.RejectionLinks-Homepage {
+  color: #265301;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
