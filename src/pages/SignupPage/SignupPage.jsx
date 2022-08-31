@@ -6,6 +6,7 @@ function SignupPage() {
     const [email, setEmail] = useState("");
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
+    const [profilePicture, setProfilePicture] = useState("");
     const [errorMessage, setErrorMessage] = useState(null);
         
     const navigate = useNavigate();
@@ -13,11 +14,12 @@ function SignupPage() {
     const handleEmail = (e) => setEmail(e.target.value)
     const handleUserName = (e) => setUserName(e.target.value)
     const handlePassword = (e) => setPassword(e.target.value)
+    const handleProfilePicture = (e) => setProfilePicture(e.target.value)
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const body = {email, username: userName, password}
+        const body = {email, username: userName, password, profilePicture}
 
         axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, body)
         .then(() => {
@@ -44,6 +46,9 @@ function SignupPage() {
 
                   <label htmlFor="password">Password</label>
                   <input type="password" name="password" id="password" value={password} onChange={handlePassword} />
+
+                  <label htmlFor="profilePicture">Profile Picture</label>
+                  <input type="profilePicture" name="profilePicture" id="profilePicture" value={profilePicture} onChange={handleProfilePicture} />
 
                   <button type="submit">Sign Up</button>
 

@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import HomePage from './pages/HomePage/HomePage';
 import SignupPage from './pages/SignupPage/SignupPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 import MyPlans from './pages/MyPlans/MyPlans';
 import CreateMyPlan from './pages/CreateMyPlan/CreateMyPlan';
 import MyPlanDetails from './pages/MyPlanDetails/MyPlanDetails';
@@ -34,8 +35,9 @@ function App() {
         }/>
 
       <Route path="/" element={<HomePage />}/>  
-      <Route path="/plan/my-plans/" element={<MyPlans />}/>  
-      <Route path="/plan/create-my-plan/" element={<CreateMyPlan />}/>  
+      <Route path="/plan/my-plans" element={<MyPlans />}/>  
+      <Route path="/profile" element={<ProfilePage />}/>  
+      <Route path="/plan/create-my-plan" element={<CreateMyPlan />}/>  
       <Route path="/plan/my-plans/:planId" element={<MyPlanDetails />}/>  
       <Route path="/plan/my-plans/:planId/:challengeId" element={<MyChallengeDetails />}/>  
 
