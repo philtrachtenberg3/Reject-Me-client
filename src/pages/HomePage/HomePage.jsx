@@ -4,7 +4,8 @@ import {useParams, Link, useNavigate} from 'react-router-dom';
 import Anon from '../../components/Anon/Anon';
 
 function HomePage() {
-  
+  const [quote, setQuote] = useState("")
+  const [author, setAuthor] = useState("")
 
   const navigate = useNavigate();
 
@@ -25,6 +26,19 @@ function HomePage() {
 
   }
 
+  
+  useEffect(() => {
+    axios.get(`https://type.fit/api/quotes/`)
+  .then((response) => { 
+    const randomNum = Math.floor(Math.random() * response.data.length);
+    setQuote(response.data[randomNum].text)
+    setAuthor(response.data[randomNum].author)
+    })
+    .catch(err => err) 
+  }, [])
+  
+  
+  
   return (
     <>
       <h1>HomePage</h1>
@@ -33,6 +47,10 @@ function HomePage() {
           <button onClick={handleSubmit}>+ Create My Plan</button>
         
       </Link>
+      {quote && (
+      <p>~~~ <i>{quote} - {author}</i> ~~~</p>
+
+      )}
       <iframe width="560" height="315" src="https://www.youtube.com/embed/-vZXgApsPCQ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     </>
 

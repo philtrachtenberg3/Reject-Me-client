@@ -19,24 +19,24 @@ function MyPlans() {
             
         }
     }
-
-    useEffect(() => {
-        getPlanList();
-    }, [])
-
-    const handleDelete = (e) => {
-        e.preventDefault()
+    const handleDelete = (id) => {
     
         const storedToken = localStorage.getItem('authToken')
         axios
-        .delete(`${process.env.REACT_APP_API_URL}/plan/my-plans/${planId}/delete`, {
+        .delete(`${process.env.REACT_APP_API_URL}/plan/my-plans/${id}/delete`, {
           headers: {
               Authorization: `Bearer ${storedToken}`
           }
       })
       .then(() => {
-        navigate(`/plan/my-plans/`)
+        getPlanList()
+        navigate(`/plan/my-plans`)
       })}
+
+    useEffect(() => {
+        getPlanList();
+    }, [])
+
 
 
   return (
@@ -52,10 +52,7 @@ function MyPlans() {
                     <p className="font-normal text-gray-700 dark:text-gray-400">
                         id: {singlePlanList._id}
                     </p>
-                    <Link to={`/plan/my-plans/${singlePlanList._id}/delete`}>
-                        <button onClick={handleDelete}>Delete Plan</button>
-                    </Link>
-                    <Button onClick={handleDelete}>
+                    <Button onClick={() => handleDelete(singlePlanList._id)}>
                         Delete Plan
                         <svg
                         className="ml-2 -mr-1 h-4 w-4"

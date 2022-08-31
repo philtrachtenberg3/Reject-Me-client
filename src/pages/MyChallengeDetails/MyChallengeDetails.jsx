@@ -77,7 +77,7 @@ useEffect(() => {
 const handleSubmit = (e) => {
   e.preventDefault();
 
-  const body = {journalEntry, video};
+  const body = {title, date, isCompleted, wasRejected, journalEntry, video};
 
   axios.put(`${process.env.REACT_APP_API_URL}/plan/my-plans/${planId}/${challengeId}`, body)
   .then(() => navigate(`/plan/my-plans/${planId}`))
@@ -94,8 +94,8 @@ const handleSubmit = (e) => {
         <h1>{challenge.title}</h1>
         <h3>Day {challenge.day}, {challenge.date.slice(0,10)}</h3>
         <video src={challenge.video} alt="video"></video>
-        <form>
-            {/* <label htmlFor="title">Title</label>
+        <form  onSubmit={handleSubmit} >
+            <label htmlFor="title">Title</label>
             <input type="text" name="title" id="title" value={title} onChange={handleTitle}/>
 
             <label htmlFor="date">Date</label>
@@ -105,7 +105,7 @@ const handleSubmit = (e) => {
             <input type="checkbox" name="isCompleted" id="isCompleted" checked={isCompleted} onChange={handleIsCompleted}/>
 
             <label htmlFor="wasRejected">Were you rejected?</label>
-            <input type="checkbox" name="wasRejected" id="wasRejected" checked={wasRejected} onChange={handleWasRejected}/> */}
+            <input type="checkbox" name="wasRejected" id="wasRejected" checked={wasRejected} onChange={handleWasRejected}/>
 
           <label htmlFor="video">Video:<input
 						type="file"
@@ -116,7 +116,7 @@ const handleSubmit = (e) => {
             <label htmlFor="journalEntry">Share Your Experience!</label>
             <textarea name="journalEntry" id="" cols="30" rows="10" onChange={handleJournalEntry}>{journalEntry}</textarea>
 
-            <button type="submit" onSubmit={handleSubmit}>Save</button>
+            <button type="submit">Save</button>
 
         </form>
         
