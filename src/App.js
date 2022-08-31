@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {Routes, Route} from 'react-router-dom'
-import Navbar from './components/Navbar/Navbar';
+import Navbars from './components/Navbar/Navbar';
 import HomePage from './pages/HomePage/HomePage';
 import SignupPage from './pages/SignupPage/SignupPage';
 import LoginPage from './pages/LoginPage/LoginPage';
@@ -16,7 +16,7 @@ import Anon from './components/Anon/Anon';
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Navbars />
 
       <Routes>
         <Route path="/auth/signup" element={

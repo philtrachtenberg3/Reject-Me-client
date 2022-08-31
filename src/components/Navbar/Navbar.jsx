@@ -1,94 +1,97 @@
 import {Link} from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 import { useContext } from 'react';
+import { Button } from 'flowbite-react';
+import { Navbar } from 'flowbite-react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-function Navbar() {
+function Navbars() {
     const {loggedIn, user, logout} = useContext(AuthContext)
+
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    
+        const storedToken = localStorage.getItem('authToken')
+        axios
+        .post(`${process.env.REACT_APP_API_URL}/plan/create-my-plan`, {
+          headers: {
+              Authorization: `Bearer ${storedToken}`
+          }
+      })
+      .then((response) => {
+        navigate(`/plan/my-plans/${response.data._id}`)
+      })
+    
+      }
 
 
   return (
 
-    <><h1 className="text-3xl font-bold underline">
-          Hello world!
-      </h1>
-      <nav className='Navbar'>
-              <Link to="/">
-                  <button>
-                      Home
-                  </button>
-              </Link>
+    <>
+<Navbar
+  fluid={true}
+  rounded={true}
+> 
+  <Navbar.Brand href="https://flowbite.com/">
+    <img
+      src="../../images/reject-me-logo.jpg"
+      className="mr-3 h-6 sm:h-9"
+      alt="Reject Me Logo"
+    />
+    
+  </Navbar.Brand>
+  <div className="flex md:order-2">
+  {loggedIn && (
+    <>
+        <Navbar.Link href="/plan/create-my-plan" active={true}>
+            <Button onClick={handleSubmit}>
+                + Create My Plan
+            </Button>
+        </Navbar.Link>
+        <Navbar.Toggle />
+    </>
+  )}
+  </div>
+  <Navbar.Collapse>
+    <Navbar.Link
+      href="/"
+      active={true}
+    >
+      Home
+    </Navbar.Link>
+    {!loggedIn && (
+    <>
+        <Navbar.Link href="/login">
+        Login
+        </Navbar.Link>
+        <Navbar.Link href="/auth/signup">
+        Signup
+        </Navbar.Link>
+    </>
+    )}
+    {loggedIn && (
+    <>
+        <Navbar.Link href="/plan/my-plans">
+            My Plans
+        </Navbar.Link><Navbar.Link href="/all-plans">
+            All Plans
+        </Navbar.Link><Navbar.Link href="/view-ideas">
+            Ideas
+        </Navbar.Link><Navbar.Link href="/profile">
+            Profile
+        </Navbar.Link><Navbar.Link onClick={logout} href="/">
+            Logout
+        </Navbar.Link>
+    </>
+    )}
+  </Navbar.Collapse>
+  </Navbar>
 
-              {!loggedIn && (
-                  <>
-                      <Link to="/login">
-                          <button>
-                              Log In
-                          </button>
-                      </Link>
-                      <Link to="/auth/signup">
-                          <button>
-                              Sign Up
-                          </button>
-                      </Link>
-                  </>
-              )}
-
-              {loggedIn && (
-                  <>
-                      <Link to="/plan/my-plans">
-                          <button>
-                              My Plans
-                          </button>
-                      </Link>
-                      {/* <span>{user.username}</span> */}
-                  </>
-              )}
-
-              {loggedIn && (
-                  <>
-                      <Link to="/all-plans">
-                          <button>
-                              All Plans
-                          </button>
-                      </Link>
-                      {/* <span>{user.username}</span> */}
-                  </>
-              )}
-
-              {loggedIn && (
-                  <>
-                      <Link to="/view-ideas">
-                          <button>
-                              Ideas
-                          </button>
-                      </Link>
-                      {/* <span>{user.username}</span> */}
-                  </>
-              )}
-
-              {loggedIn && (
-                  <>
-                      <Link to="/profile">
-                          <button>
-                              Profile
-                          </button>
-                      </Link>
-                      {/* <span>{user.username}</span> */}
-                  </>
-              )}
-
-              {loggedIn && (
-                  <>
-                        <button onClick={logout}>Logout</button>
-                      {/* <span>{user.username}</span> */}
-                      
-                  </>
-              )}
-
-
-
-          </nav></>
+    </>
   )
 }
 
-export default Navbar
+export default Navbars
