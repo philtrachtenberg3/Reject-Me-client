@@ -79,8 +79,8 @@ const handleSubmit = (e) => {
 
   const body = {title, date, isCompleted, wasRejected, journalEntry, video};
 
-  axios.put(`${process.env.REACT_APP_API_URL}/plan/my-plans/${planId}/${challengeId}`, body)
-  .then(() => navigate(`/plan/my-plans/${planId}`))
+  axios.put(`${process.env.REACT_APP_API_URL}/plan/my-plans/${planId}/${challengeId}/edit`, body)
+  .then(() => navigate(`/plan/my-plans/${planId}/${challengeId}`))
   .catch((err) => console.log(err))
 }
 

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Alert } from 'flowbite-react';
 import {useState, useEffect} from 'react';
 import {useParams, Link, useNavigate} from 'react-router-dom';
 
@@ -77,11 +78,12 @@ useEffect(() => {
 const handleSubmit = (e) => {
   e.preventDefault();
 
-  const body = {title, date, isCompleted, wasRejected, journalEntry, video};
+  const body = {isCompleted, wasRejected, journalEntry, video};
 
   axios.put(`${process.env.REACT_APP_API_URL}/plan/my-plans/${planId}/${challengeId}`, body)
-  .then(() => navigate(`/plan/my-plans/${planId}`))
+  .then(() => navigate(`/plan/my-plans/${planId}/${challengeId}`))
   .catch((err) => console.log(err))
+  
 }
 
 
@@ -91,11 +93,24 @@ const handleSubmit = (e) => {
     <div>
     {challenge && (
       <>
-        <video src={challenge.video} alt="video"></video>
         <h1>{challenge.title}</h1>
-        <h3>Day {challenge.day}, {challenge.date.slice(0,10)}</h3>
-        <h4>{challenge.date}</h4>
+        <h3>Day {challenge.day}</h3>
+        <h4>{challenge.date.slice(0,10)}</h4>
+        {/* <p>Did you complete the challenge? {isCompleted ? "Yes" : "No"}</p>
+        <p>Were you rejected? {wasRejected ? "Yes" : "No"}</p> */}
+        <Link to={`/plan/my-plans/${planId}/${challengeId}/edit`}>
+            <button>Edit Plan Details</button>
+        </Link>
+        <video width="320" height="240" controls>
+            <source src={challenge.video} type="video/mp4"/>
+        </video>
+        
         <form  onSubmit={handleSubmit}>
+                <label htmlFor="video">Upload Video<input
+						type="file"
+						accept=".jpg, .png, .jpeg, .webp, .mp4"
+						onChange={(e) => handleFileUpload(e)}/>
+				</label>
 
             <label htmlFor="isCompleted">Did you complete the challenge?</label>
             <input type="checkbox" name="isCompleted" id="isCompleted" checked={isCompleted} onChange={handleIsCompleted}/>
@@ -108,9 +123,6 @@ const handleSubmit = (e) => {
 
             <button type="submit">Save</button>
         </form>
-        <Link to="/">
-            <button>Edit My Plan</button>
-        </Link>
         
 
       </>

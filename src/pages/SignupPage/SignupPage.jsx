@@ -8,14 +8,40 @@ function SignupPage() {
     const [password, setPassword] = useState("");
     const [profilePicture, setProfilePicture] = useState("");
     const [errorMessage, setErrorMessage] = useState(null);
+    const [Loading, setLoading] = useState("")
         
     const navigate = useNavigate();
 
     const handleEmail = (e) => setEmail(e.target.value)
     const handleUserName = (e) => setUserName(e.target.value)
     const handlePassword = (e) => setPassword(e.target.value)
-    const handleProfilePicture = (e) => setProfilePicture(e.target.value)
 
+    const handleProfilePicture = (e) => {
+		setLoading(true);
+		// console.log("The file to be uploaded is: ", e.target.files[0]);
+
+		const uploadData = new FormData();
+		//console.log(user);
+		// imageUrl => this name has to be the same as in the model since we pass
+		// req.body to .create() method when creating a new movie in '/api/movies' POST route
+		uploadData.append("video", e.target.files[0]);
+
+		axios
+			.post(`${process.env.REACT_APP_API_URL}/upload`, uploadData)
+			.then((response) => {
+				// console.log("response is: ", response);
+				// response carries "fileUrl" which we can use to update the state
+				console.log(response.data.fileUrl);
+				setProfilePicture(response.data.fileUrl);
+				setLoading(false);
+			})
+			.catch((err) => {
+				setLoading(false);
+				console.log("Error while uploading the file: ", err);
+			});
+	};
+    
+    
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -48,7 +74,7 @@ function SignupPage() {
                   <input type="password" name="password" id="password" value={password} onChange={handlePassword} />
 
                   <label htmlFor="profilePicture">Profile Picture</label>
-                  <input type="profilePicture" name="profilePicture" id="profilePicture" value={profilePicture} onChange={handleProfilePicture} />
+                  <input type="file" name="profilePicture" id="profilePicture" onChange={handleProfilePicture} />
 
                   <button type="submit">Sign Up</button>
 

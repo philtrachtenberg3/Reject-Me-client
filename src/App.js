@@ -9,6 +9,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import MyPlans from './pages/MyPlans/MyPlans';
 import CreateMyPlan from './pages/CreateMyPlan/CreateMyPlan';
 import MyPlanDetails from './pages/MyPlanDetails/MyPlanDetails';
+import MyChallengeDetails from './pages/MyChallengeDetails/MyChallengeDetails';
 import EditMyChallengeDetails from './pages/EditMyChallengeDetails/EditMyChallengeDetails';
 import Anon from './components/Anon/Anon';
 
@@ -39,7 +40,8 @@ function App() {
       <Route path="/profile" element={<ProfilePage />}/>  
       <Route path="/plan/create-my-plan" element={<CreateMyPlan />}/>  
       <Route path="/plan/my-plans/:planId" element={<MyPlanDetails />}/>  
-      <Route path="/plan/my-plans/:planId/:challengeId" element={<EditMyChallengeDetails />}/>  
+      <Route path="/plan/my-plans/:planId/:challengeId" element={<MyChallengeDetails />}/>  
+      <Route path="/plan/my-plans/:planId/:challengeId/edit" element={<EditMyChallengeDetails />}/>  
 
       </Routes>
       
