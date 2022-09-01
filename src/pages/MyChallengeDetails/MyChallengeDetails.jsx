@@ -93,17 +93,35 @@ const handleSubmit = (e) => {
     <div>
     {challenge && (
       <>
-        <h1>{challenge.title}</h1>
-        <h3>Day {challenge.day}</h3>
-        <h4>{challenge.date.slice(0,10)}</h4> 
+
+        <h1 class="mb-4 mt-10 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"><mark class="px-4 text-white bg-blue-600 rounded dark:bg-blue-500"><i>{challenge.title.split(' ')[0]}</i></mark> {challenge.title.split(' ').slice(1,challenge.title.length).join(' ')}</h1>
+        <p class="text-xl mb-2 font-normal text-gray-500 lg:text-3xl dark:text-gray-400"><b>Day {challenge.day}</b></p>
+        <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">{challenge.date.slice(0,10)}</p>
+
         {/* <p>Did you complete the challenge? {isCompleted ? "Yes" : "No"}</p>
         <p>Were you rejected? {wasRejected ? "Yes" : "No"}</p> */}
-        <Link to={`/plan/my-plans/${planId}/${challengeId}/edit`}>
-            <button>Edit Plan Details</button>
-        </Link>
+        <a href={`/plan/my-plans/${planId}/${challengeId}/edit`}>
+
+            <button type="button" class="mt-4 shadow-xl text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <svg class="w-6 h-6 m-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                Edit Plan Details
+            </button>
+        </a>
+
+        <hr class="my-4 mx-auto w-1/2 h-1 bg-gray-100 rounded border-0 md:my-10 dark:bg-gray-700"/>
+
+        {challenge.video ? (
+            <video width="320" height="240" controls>
+                <source src={challenge.video} type="video/mp4"/>
+            </video>
+
+        ) : 
         <video width="320" height="240" controls>
-            <source src={challenge.video} type="video/mp4"/>
-        </video>
+                <source src="https://thumbs.gfycat.com/SharpMagnificentGreathornedowl-size_restricted.gif" type="video/mp4"/>
+            </video>
+        }
+
+        
         
         <form  onSubmit={handleSubmit}>
                 <label htmlFor="video">Upload Video<input
