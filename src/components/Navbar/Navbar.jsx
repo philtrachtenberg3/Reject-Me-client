@@ -38,8 +38,8 @@ function Navbars() {
   <Navbar.Brand>
     <Link to="/">
         <img
-        src="../../images/reject-me-logo.jpg"
-        className="mr-3 h-6 sm:h-9"
+        src="https://res.cloudinary.com/dt4l4dgkp/image/upload/v1662058876/reject-me/reject-me-logo_ngykxa.jpg"
+        className="mr-3 h-6 sm:h-9 w-28"
         alt="Reject Me Logo"
         />
     </Link>
