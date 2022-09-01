@@ -116,14 +116,28 @@ const handleSubmit = (e) => {
             </video>
 
         ) : 
-        <video width="320" height="240" controls>
-                <source src="https://thumbs.gfycat.com/SharpMagnificentGreathornedowl-size_restricted.gif" type="video/mp4"/>
-            </video>
+        <img src="https://thumbs.gfycat.com/SharpMagnificentGreathornedowl-size_restricted.gif" alt="no video" />
+        
         }
+
+        <div class="flex items-center mb-4">
+            <input disabled id="disabled-checkbox" type="checkbox" checked={isCompleted} class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+            <label for="disabled-checkbox" class="ml-2 text-sm font-medium text-gray-400 dark:text-gray-500">Did you complete the challenge?</label>
+        </div>
+
+        <div class="flex items-center mb-4">
+            <input disabled id="disabled-checkbox" type="checkbox" checked={wasRejected} class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+            <label for="disabled-checkbox" class="ml-2 text-sm font-medium text-gray-400 dark:text-gray-500">Were you rejected?</label>
+        </div>
+
+
+        <label for="message" class="block mb-2 text-sm font-medium text-gray-400 dark:text-gray-400">Share Your Experience!</label>
+        <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-400 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message...">{journalEntry}</textarea>
+
 
         
         
-        <form  onSubmit={handleSubmit}>
+        {/* <form  onSubmit={handleSubmit}>
                 <label htmlFor="video">Upload Video<input
 						type="file"
 						accept=".jpg, .png, .jpeg, .webp, .mp4"
@@ -140,7 +154,7 @@ const handleSubmit = (e) => {
             <textarea name="journalEntry" id="" cols="30" rows="10" onChange={handleJournalEntry}>{journalEntry}</textarea>
 
             <button type="submit">Save</button>
-        </form>
+        </form> */}
         
 
       </>
