@@ -35,60 +35,77 @@ function Navbars() {
   fluid={true}
   rounded={true}
 > 
-  <Navbar.Brand href="https://flowbite.com/">
-    <img
-      src="../../images/reject-me-logo.jpg"
-      className="mr-3 h-6 sm:h-9"
-      alt="Reject Me Logo"
-    />
+  <Navbar.Brand>
+    <Link to="/">
+        <img
+        src="../../images/reject-me-logo.jpg"
+        className="mr-3 h-6 sm:h-9"
+        alt="Reject Me Logo"
+        />
+    </Link>
     
   </Navbar.Brand>
   <div className="flex md:order-2">
   {loggedIn && (
     <>
-        <Navbar.Link href="/plan/create-my-plan" active={true}>
-            <Button onClick={handleSubmit} className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                + Create My Plan
-            </Button>
-        </Navbar.Link>
+        
+            <Link to="/plan/create-my-plan">
+                <Button onClick={handleSubmit} className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    + Create My Plan
+                </Button>
+            </Link>
+        
         <Navbar.Toggle />
     </>
   )}
   </div>
   <Navbar.Collapse>
-    <Navbar.Link
-      href="/"
-      active={true}
-    >
-      Home
-    </Navbar.Link>
+    
+      <Link to="/" className="text-gray-600">
+        Home
+      </Link>
+    
     {!loggedIn && (
     <>
-        <Navbar.Link href="/login">
-        Login
-        </Navbar.Link>
-        <Navbar.Link href="/auth/signup">
-        Signup
-        </Navbar.Link>
+        
+            <Link to="/login" className="text-gray-600">
+                Login
+            </Link>
+        
+        
+            <Link to="/auth/signup" className="text-gray-600">
+                Signup
+            </Link>
+        
     </>
     )}
     {loggedIn && (
     <>
-        <Navbar.Link href="/plan/my-plans">
-            My Plans
-        </Navbar.Link>
-        <Navbar.Link href="/all-plans">
-            All Plans
-        </Navbar.Link>
-        <Navbar.Link href="/view-ideas">
-            Ideas
-        </Navbar.Link>
-        <Navbar.Link href="/profile">
-            Profile
-        </Navbar.Link>
-        <Navbar.Link onClick={logout} href="/">
-            Logout
-        </Navbar.Link>
+        
+            <Link to="/plan/my-plans" className="text-gray-600">
+                My Plans
+            </Link>
+        
+        
+            <Link to="/all-plans" className="text-gray-600">
+                All Plans
+            </Link>
+        
+        
+            <Link to="/view-ideas" className="text-gray-600">
+                Ideas
+            </Link>
+        
+        
+            <Link to="/profile" className="text-gray-600">
+                Profile
+            </Link>
+        
+        
+            <Link onClick={logout} to="/" className="text-gray-600">
+                Logout
+            </Link>
+        
     </>
     )}
   </Navbar.Collapse>
