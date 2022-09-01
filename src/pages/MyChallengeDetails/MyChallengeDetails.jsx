@@ -95,7 +95,7 @@ const handleSubmit = (e) => {
       <>
         <h1>{challenge.title}</h1>
         <h3>Day {challenge.day}</h3>
-        <h4>{challenge.date.slice(0,10)}</h4>
+        <h4>{challenge.date.slice(0,10)}</h4> 
         {/* <p>Did you complete the challenge? {isCompleted ? "Yes" : "No"}</p>
         <p>Were you rejected? {wasRejected ? "Yes" : "No"}</p> */}
         <Link to={`/plan/my-plans/${planId}/${challengeId}/edit`}>

@@ -16,7 +16,7 @@ function Navbars() {
     
         const storedToken = localStorage.getItem('authToken')
         axios
-        .post(`${process.env.REACT_APP_API_URL}/plan/create-my-plan`, {
+        .post(`${process.env.REACT_APP_API_URL}/plan/create-my-plan`, {}, {
           headers: {
               Authorization: `Bearer ${storedToken}`
           }
@@ -47,7 +47,7 @@ function Navbars() {
   {loggedIn && (
     <>
         <Navbar.Link href="/plan/create-my-plan" active={true}>
-            <Button onClick={handleSubmit} className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <Button onClick={handleSubmit} className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 + Create My Plan
             </Button>
         </Navbar.Link>
