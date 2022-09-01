@@ -61,19 +61,19 @@ function Navbars() {
   </div>
   <Navbar.Collapse>
     
-      <Link to="/" className="text-gray-600">
+      <Link to="/" className="block py-2 pr-4 pl-3 text-xl font-extrabold text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">
         Home
       </Link>
     
     {!loggedIn && (
     <>
         
-            <Link to="/login" className="text-gray-600">
+            <Link to="/login" className="block text-xl font-bold py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                 Login
             </Link>
         
         
-            <Link to="/auth/signup" className="text-gray-600">
+            <Link to="/auth/signup" className="block text-xl font-bold py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                 Signup
             </Link>
         
@@ -82,27 +82,27 @@ function Navbars() {
     {loggedIn && (
     <>
         
-            <Link to="/plan/my-plans" className="text-gray-600">
+            <Link to="/plan/my-plans" className="block text-xl font-bold py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                 My Plans
             </Link>
         
         
-            <Link to="/all-plans" className="text-gray-600">
+            <Link to="/all-plans" className="block text-xl font-bold py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                 All Plans
             </Link>
         
         
-            <Link to="/view-ideas" className="text-gray-600">
+            <Link to="/view-ideas" className="block text-xl font-bold py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                 Ideas
             </Link>
         
         
-            <Link to="/profile" className="text-gray-600">
+            <Link to="/profile" className="block text-xl font-bold py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                 Profile
             </Link>
         
         
-            <Link onClick={logout} to="/" className="text-gray-600">
+            <Link onClick={logout} to="/" className="block text-xl font-bold py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                 Logout
             </Link>
         

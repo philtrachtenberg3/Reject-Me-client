@@ -59,9 +59,8 @@ function SignupPage() {
 
 
   return (
-    <><h1 className="text-4xl font-bold underline">
-          Hello world!
-      </h1><div className="SignupPage">
+    <>
+      <div className="SignupPage">
               <h1>Sign Up</h1>
               <form onSubmit={handleSubmit}>
                   <label htmlFor="email">Email</label>
