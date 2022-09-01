@@ -91,34 +91,75 @@ const handleSubmit = (e) => {
     <div>
     {challenge && (
       <>
-        <h1>{challenge.title}</h1>
-        <h3>Day {challenge.day}, {challenge.date.slice(0,10)}</h3>
-        <video src={challenge.video} alt="video"></video>
-        <form  onSubmit={handleSubmit} >
-            <label htmlFor="title">Title</label>
-            <input type="text" name="title" id="title" value={title} onChange={handleTitle}/>
 
-            <label htmlFor="date">Date</label>
-            <input type="date" name="date" id="date" value={date.slice(0,10)} onChange={handleDate}/>
+        
+        <h1 class="mb-8 mt-4 text-4xl font-extrabold tracking-tight leading-none text-blue-600 md:text-5xl lg:text-6xl dark:text-white">Track Your Progress!</h1>
+        <div className="flex justify-center items-center">
+          <div className="block p-6 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <form  onSubmit={handleSubmit} className="flex flex-col justify-center items-center">
 
-            <label htmlFor="isCompleted">Did you complete the challenge?</label>
-            <input type="checkbox" name="isCompleted" id="isCompleted" checked={isCompleted} onChange={handleIsCompleted}/>
+            <div class="mb-6 w-1/2 flex flex-col justify-center items-center">
+              <label for="title" className="block mb-2 text-md font-bold font-medium text-gray-900 dark:text-gray-300">Title</label>
+              <input type="text" id="title" value={title} onChange={handleTitle} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+            </div>
+            <div class="mb-6 w-1/5 flex flex-col justify-center items-center">
+              <label for="date" className="block mb-2 text-md font-bold font-medium text-gray-900 dark:text-gray-300">Date</label>
+              <input type="date" id="date" value={date.slice(0,10)} onChange={handleDate} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+            </div>
 
-            <label htmlFor="wasRejected">Were you rejected?</label>
-            <input type="checkbox" name="wasRejected" id="wasRejected" checked={wasRejected} onChange={handleWasRejected}/>
+            <fieldset>
+                <legend class="sr-only">Checkbox variants</legend>
 
-          <label htmlFor="video">Video:<input
-						type="file"
-						accept=".jpg, .png, .jpeg, .webp, .mp4"
-						onChange={(e) => handleFileUpload(e)}/>
-				</label>
+                <div class="flex items-center mb-4">
+                    <label for="checkbox-2" class="ml-2 text-md font-bold text-gray-900 dark:text-gray-300">Did you complete the challenge?</label>
+                    <input id="checkbox-2" type="checkbox" checked={isCompleted} onChange={handleIsCompleted} class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                </div>
 
-            <label htmlFor="journalEntry">Share Your Experience!</label>
-            <textarea name="journalEntry" id="" cols="30" rows="10" onChange={handleJournalEntry}>{journalEntry}</textarea>
+                <div class="flex items-center mb-4">
+                    <label for="checkbox-3" class="ml-2 text-md font-bold text-gray-900 dark:text-gray-300">Were you rejected?</label>
+                    <input id="checkbox-3" type="checkbox" checked={wasRejected} onChange={handleWasRejected} class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                </div>
+            </fieldset>
+            <label class="block mb-2 text-md font-bold text-gray-900 dark:text-gray-300" for="user_avatar">Video</label>
+            <input class="block w-1/4 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" accept=".jpg, .png, .jpeg, .webp, .mp4" onChange={(e) => handleFileUpload(e)}/>
+            <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">Upload a video to see how far you've come!</div>
 
-            <button type="submit">Save</button>
 
-        </form>
+
+            <label for="message" class="block mb-2 mt-8 text-md font-bold text-gray-900 dark:text-gray-400">Share Your Experience!</label>
+            <textarea id="message" rows="4" class="block p-2.5 w-8/12 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..." onChange={handleJournalEntry}>{journalEntry}</textarea>
+
+            <button type="submit" className="mt-8 w-1/4 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Save</button>
+
+
+              {/*  <label htmlFor="title">Title</label>
+                <input type="text" name="title" id="title" value={title} onChange={handleTitle}/>
+
+                <label htmlFor="date">Date</label>
+                <input type="date" name="date" id="date" value={date.slice(0,10)} onChange={handleDate}/>
+
+                <label htmlFor="isCompleted">Did you complete the challenge?</label>
+                <input type="checkbox" name="isCompleted" id="isCompleted" checked={isCompleted} onChange={handleIsCompleted}/>
+
+                <label htmlFor="wasRejected">Were you rejected?</label>
+                <input type="checkbox" name="wasRejected" id="wasRejected" checked={wasRejected} onChange={handleWasRejected}/>
+
+              <label htmlFor="video">Video:<input
+                type="file"
+                accept=".jpg, .png, .jpeg, .webp, .mp4"
+                onChange={(e) => handleFileUpload(e)}/>
+            </label>
+
+                <label htmlFor="journalEntry">Share Your Experience!</label>
+                <textarea name="journalEntry" id="" cols="30" rows="10" onChange={handleJournalEntry}>{journalEntry}</textarea> */}
+
+                
+
+            </form>
+
+          </div>
+
+        </div>
         
 
       </>

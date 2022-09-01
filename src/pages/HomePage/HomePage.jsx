@@ -66,30 +66,30 @@ function HomePage() {
       </div>
 
       
-      <div className="DescriptiveTextContainer-Homepage">
-        <a href="#" className="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img className="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="https://www.incimages.com/uploaded_files/image/1920x1080/Hand-says-no-pano_12478.jpg" alt="rejection therapy"></img>
+      <div className="flex flex-wrap justify-around justify-items-start items-start content-start">
+        <Link to="#" className="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-4">
+            <img className="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_122609330_9706889704500100_68824.jpg" alt="rejection therapy"></img>
             <div className="flex flex-col justify-between p-4 leading-normal">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">What is Rejection Therapy?</h5>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400"><b className="Bold-Homepage">Rejection Therapy</b> is a social self-help game created by Jason Comely where being rejected by another person or group is the sole winning condition.</p>
             </div>
-        </a>
-        <a href="#" className="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img className="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="https://www.incimages.com/uploaded_files/image/1920x1080/Hand-says-no-pano_12478.jpg" alt="rejection therapy"></img>
+        </Link>
+        <Link to="#" className="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <img className="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="https://media.baamboozle.com/uploads/images/65676/1599857736_336884" alt="rules"></img>
             <div className="flex flex-col justify-between p-4 leading-normal">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">What are the rules?</h5>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">There is only one official rule to Rejection Therapy, which is to be <b className="Bold-Homepage">rejected by another person</b> at least once, every day.</p>
             </div>
-        </a>
-        <a href="#" className="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img className="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="https://www.incimages.com/uploaded_files/image/1920x1080/Hand-says-no-pano_12478.jpg" alt="rejection therapy"></img>
+        </Link>
+        <Link to="#" className="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <img className="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="https://www.rand.org/content/rand/randeurope/research/projects/eu-child-participation-in-political-democratic-life/_jcr_content/par/imagewithclass.aspectfit.0x0.jpg/1614032119716.jpg" alt="participation"></img>
             <div className="flex flex-col justify-between p-4 leading-normal">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Why should I participate?</h5>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">The purpose of playing the game is to <b className="Bold-Homepage">overcome the fear of rejection</b> through controlled, forced exposure. By this means, players hope to adapt physically to the stresses of rejection.</p>
             </div>
-        </a>
-        <a className="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <img className="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="https://www.incimages.com/uploaded_files/image/1920x1080/Hand-says-no-pano_12478.jpg" alt="rejection therapy"></img>
+        </Link>
+        <Link to="#" className="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <img className="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="https://www.websolutions.com/Customer-Content/www/CMS/files/types-links.png" alt="more resources"></img>
             <div className="flex flex-col justify-between p-4 leading-normal">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">I'd like to learn more!</h5>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
@@ -106,7 +106,7 @@ function HomePage() {
                 </ul>
                 </p>
             </div>
-        </a>
+        </Link>
       </div>
 
 

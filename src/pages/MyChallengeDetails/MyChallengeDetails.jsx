@@ -111,7 +111,7 @@ const handleSubmit = (e) => {
         <hr class="my-4 mx-auto w-1/2 h-1 bg-gray-100 rounded border-0 md:my-10 dark:bg-gray-700"/>
 
         {challenge.video ? (
-            <video width="320" height="240" controls>
+            <video className="mx-auto w-1/3 max-w-lg border-8 rounded border-blue-100 h-auto" controls>
                 <source src={challenge.video} type="video/mp4"/>
             </video>
 
