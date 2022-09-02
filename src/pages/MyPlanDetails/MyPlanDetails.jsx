@@ -27,7 +27,7 @@ function MyPlanDetails() {
             <>
                 <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Your Plan created on <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">{plan.createdAt.slice(0,10)}</span></h1>
                 <hr class="my-4 mx-auto w-1/2 h-1 bg-gray-100 rounded border-0 md:my-10 dark:bg-gray-700"/>
-                <div className="flex flex-initial flex-wrap">
+                <div className="flex flex-initial flex-wrap justify-center">
                     {plan.challenges.map((challengeDetails) => {
                         return (
 
